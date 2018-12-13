@@ -14,7 +14,7 @@ It is built off of [slackifpy](https://github.com/exposit/slackifpy).
 
 #### IF You Know What You Are Doing
 
-Download the repo. I suggest using a VM running linux as host. Install discord.py for python. Download the games you want to play. Get the source for and compile the appropriate interpreter(s) with glk. Update gamedb.py with game info. Make a discord bot. Change the configuration options in the main script as the comments direct, using your channel id and your bot token. The bot wil report in once it is active; use "@ifbot help" in Discord to get a list of commands.
+Download the repo. I suggest using a VM running linux as host. Install discord.py for python. Download the games you want to play. Get the source for and compile the appropriate interpreter(s) with glk. Update games.txt with game info. Make a discord bot. Change the configuration options in the main script as the comments direct, your bot token. The bot wil report in once it is active; use "@ifbot help" in Discord to get a list of commands.
 
 #### Step By Step
 
@@ -22,7 +22,7 @@ This is not a hard or complicated process, but it requires multiple steps and th
 
 0. (optional but recommended) Consider using the instructions for [slackifpy](https://github.com/exposit/slackifpy) as a guide. I haven't tested this with a VM but it should work fine.
 
-1. Download and extract the discordifpy zip. NOTE: The folder structure is pretty arbitrary and easily changed, but I suggest leaving it for now and changing it if you intend to after you've got a sample game up and running.
+1. Download and extract the discordifpy zip. NOTE: The folder structure is arbitrary and easily changed, but I suggest leaving it for now and changing it if you intend to after you've got a sample game up and running.
 
 2. Verify that you have Python. You need Python 3. Install discord.py on the system where you will be running discordif.py. You may need to install pip.
 
@@ -49,11 +49,11 @@ This is not a hard or complicated process, but it requires multiple steps and th
 
     https://github.com/realnc/frobtads
 
-4. Download a game that's playable by at least one of the interpreters you've compiled. The sample gamedb assumes you've got [9:05 by Adam Cadre](http://ifdb.tads.org/viewgame?id=qzftg3j8nh5f34i2) from the [ifdb.tads.org](ifdb). Unzip it, and drop the 905.z5 file into the "games" subfolder.
+4. Download a game that's playable by at least one of the interpreters you've compiled. The sample games.txt assumes you've got [9:05 by Adam Cadre](http://ifdb.tads.org/viewgame?id=qzftg3j8nh5f34i2) from the [ifdb.tads.org](ifdb). Unzip it, and drop the 905.z5 file into the "games" subfolder.
 
-5. Open gamedb.py in a text editor. It's already set up for 9:05 and dfrotz. But you can add more games if you'd like. Sample frobTADs and Glulxe game definitions are included for reference. Case matters. The uniqueid can be any string without spaces but should be short and memorable.
+5. Open games.txt in a text editor. It's already set up for 9:05 and dfrotz. But you can add more games if you'd like. Sample frobTADs and Glulxe game definitions are included for reference. Case matters. The uniqueid can be any string without spaces but should be short and memorable.
 
-  **NOTE:** If you are using frobTads, be sure to put "-i plain" in place of "None" in the arguments field for each TADs game in gamedb.py.
+  **NOTE:** If you are using frobTads, be sure to put "-i plain" in place of "None" in the arguments field for each TADs game in games.txt.
 
 6. Open discordif.py. Change the paths variables to reflect your own path if necessary. Change any other variables.
 
