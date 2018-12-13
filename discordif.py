@@ -194,8 +194,10 @@ async def launch(*args):
     else:
         result = "A game is currently in progress. Please use _> quit_ to exit first."
 
-    await client.say(result)
-    await asyncio.sleep(1)
+    # now chunk if it is too long
+    for chunk in [result[i:i+2000] for i in range(0, len(result), 2000)]:
+        await client.say(chunk)
+        await asyncio.sleep(1)
 
 @client.command()
 async def list(*args):
@@ -248,7 +250,7 @@ async def on_message(message):
         # now chunk if it is too long
         for chunk in [result[i:i+2000] for i in range(0, len(result), 2000)]:
             await client.send_message(message.channel, chunk)
-            await asyncio.sleep(3)
+            await asyncio.sleep(1)
 
     else:
         await client.process_commands(message)
