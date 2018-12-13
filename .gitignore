@@ -1,9 +1,11 @@
 *.z5
+*.gblorb
 /terps/bocfel
 /terps/bocfel-noglk
 /terps/dfrotz
 /terps/frotz-local
 /terps/nfrotz
+/terps/glulxe
 .*
 *.pyc
 *_old.py

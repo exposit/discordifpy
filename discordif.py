@@ -24,7 +24,7 @@ else:
     input = raw_input
 
 # put your token here (or put this line in a separate file named "secret.py")
-token = ""
+#token = ""
 
 # set paths
 game_path = "./games/"
@@ -33,7 +33,7 @@ terp_path = "./terps/"
 # some general messaging from ifbot to Slack
 start_msg = "_is starting the game._\n*..... GAME START .....*\n\n"
 end_msg = "_is shutting the game down._\n*..... GAME END .....*\n"
-default_status = "waiting to play some IF"
+default_status = "nothing at the moment"
 
 # format game output as a code block, true or false. Default is not to.
 format_code_block = False
@@ -245,8 +245,10 @@ async def on_message(message):
             print(end_msg)
             await client.change_presence(game=discord.Game(name=default_status))
 
-        await client.send_message(message.channel, result)
-        await asyncio.sleep(3)
+        # now chunk if it is too long
+        for chunk in [result[i:i+2000] for i in range(0, len(result), 2000)]:
+            await client.send_message(message.channel, chunk)
+            await asyncio.sleep(3)
 
     else:
         await client.process_commands(message)
@@ -257,7 +259,7 @@ async def on_command_error(error, ctx):
     print(error, ctx)
 
     # default response if no other queries are caught
-    answer = "Please ask me for help with _@ifbot help_."
+    answer = "Something has gone wrong or is not working properly. Please ask me for help with _@ifbot help_ or mention a mod."
 
     await client.send_message(ctx.message.channel, answer)
     #await client.send_message(client.get_channel(channel), answer)
