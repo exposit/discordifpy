@@ -15,7 +15,7 @@ import threading
 import time
 import sys
 import os
-#from secret import token
+from secret import token
 
 if sys.version_info.major >= 3:
     import queue
@@ -26,8 +26,10 @@ else:
 # put your token here (or put this line in a separate file named "secret.py")
 #token = ""
 
-# set your channel id for the bot to respond in
+# set your channel id for the bot to respond in; in the discord app, go to your settings -> appearance and activate developer mode. Then right click on the channel you want and click 'copy id'.
 ifchannel = "522833461870854145"
+
+# the prefix the bot will listen for
 prefix = "!"
 
 # set paths
